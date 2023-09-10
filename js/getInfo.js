@@ -13,19 +13,19 @@ const aqi_info = async (position, conditions) => {
     }
 
     console.log(componentsString)
-    let gpt_response
+    // let gpt_response
 
-    if (conditions != null) {
-        gpt_response = await chat(`Tell me about the adverse health conditions related to an air quality of ${aqi_data.aqi} and then in 100 words summarize the effects of the individual particle measurments of ${componentsString} in the air, please be as breif as possible with bullets of 15 words per`)
-    }
-    else {
-        gpt_response = await chat(`Tell me about the risks of an air quality of: ${aqi_data.aqi} and particle measurments of ${componentsString} to someone with the following conditions ${conditions}, please be as breif as possible with bullets of 15 words per`)
-    }
+    // if (conditions != null) {
+    //     gpt_response = await chat(`Tell me about the adverse health conditions related to an air quality of ${aqi_data.aqi} and then in 100 words summarize the effects of the individual particle measurments of ${componentsString} in the air, please be as breif as possible with bullets of 15 words per`)
+    // }
+    // else {
+    //     gpt_response = await chat(`Tell me about the risks of an air quality of: ${aqi_data.aqi} and particle measurments of ${componentsString} to someone with the following conditions ${conditions}, please be as breif as possible with bullets of 15 words per`)
+    // }
 
-    await console.log(gpt_response[0].message.content)
+    // await console.log(gpt_response[0].message.content)
 
     return await {
-        gtp_info: gpt_response[0].message.content,
+        // gtp_info: gpt_response[0].message.content,
         data: aqi_data,
     }
 }

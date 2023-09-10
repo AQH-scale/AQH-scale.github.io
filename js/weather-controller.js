@@ -1,36 +1,91 @@
 require('dotenv').config()
 
 const getAQI = async (lat, lon) => {
+    console.log('here')
     const url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}`
-
+    
+    console.log("done")
     const response = await fetch(url);
     const data = await response.json()
 
     console.log(data)
 
     const aqi = await {
-        aqi: 150, // for test //await data['list'][0].main.aqi needs to be calculated based on components,
+        aqi: null, // for test //await data['list'][0].main.aqi needs to be calculated based on components,
         components: await data['list'][0].components,
     }
 
-    const pollutant = "PM10"; 
-    const concentration = 122; 
-    let number = calculateAQI(pollutant, concentration);
-    console.log(number)
+    const realAqi = await getRealAqi(lat, lon, await data['list'][0].components)
+
+    aqi.aqi= realAqi
+
 
     console.log(aqi)
     return aqi
 
 }
 
-const getTempPressure = async (lat, lon) => {
-    const url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}`
+const getRealAqi = async (lat, lon, ugm3_dictionary) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}`
+    const respone = await fetch(url)
+    const data = await respone.json()
+    console.log('here')
+    const temp = (data.main.temp)
+    let pressure = (data.main.pressure)
+
+    pressure = pressure/ 0.000986
+
+
+    const ppbs = [calculateAQI(pressure, temp, "SO2", ugm3_dictionary["so2"]), calculateAQI(pressure, temp, "CO", ugm3_dictionary["co"]), calculateAQI(pressure, temp, "NO2", ugm3_dictionary["no2"]), calculateAQI(pressure, temp, "PM2_5", ugm3_dictionary["pm2_5"]), calculateAQI(pressure, temp, "PM10", ugm3_dictionary["pm10"])]
+    
+    var greatest_aqi = ppbs[0];
+    
+    for (let i = 0; i < 5; i++){
+        if (ppbs[i] > greatest_aqi){
+            greatest_aqi = ppbs[i];
+        }
+    }
+
+    console.log(greatest_aqi);
+    return greatest_aqi;
 
 }
 
 
-function calculateAQI(pollutant, concentration) {
+function ugm3ToPpb(pressure, temperature, ugm3, pollutant){
+    
+    const weights = {
+        CO: [28.01],
+        NO2: [46.01],
+        O3: [48.00],
+        SO2: [64.07]
+    }
+    
+    var V = 8.314 * temperature/pressure;
+    
+    return V * ugm3/weights[pollutant]/100;
+}
 
+//let ppb = ugm3ToPpb(1.0, 291, 0.23, "SO2");
+//console.log(ppb);
+
+
+function calculateAQI(pres, temp, pollutant, theConcentration) {
+    
+    var concentration; 
+    
+    if (pollutant == "NO2" || pollutant == "SO2" || pollutant == "O3"){
+         concentration = ugm3ToPpb(pres, temp, theConcentration, pollutant);
+    }
+    else if (pollutant == "CO"){
+         concentration = ugm3ToPpb(pres, temp, theConcentration, "CO");
+         concentration = concentration/1000.0;
+    }
+    else{
+        concentration = theConcentration;
+    }
+    console.log(concentration);
+    
     const breakpoints = {
         CO: [0, 4.5, 9.5, 12.5, 15.5, 30.5, 40.5],
         //NO: [0, 53, 100, 360, 649, 1249, 2049],

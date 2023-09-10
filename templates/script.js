@@ -12,8 +12,8 @@ async function fillInText() {
     data: JSON.stringify({
       'query': 'hello',
       'location': {
-        'lon': 47.6061,
-        'lat': 122.3328,
+        'lon': 47.6038321,
+        'lat': -122.330062,
       }
     }),
   })
