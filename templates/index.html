@@ -43,6 +43,11 @@
 <!--<section class="red"-->
     <section class="aqi" id="aqi-section">
         <body onload="setVariables()">
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+            </div>
             <p><span id="airCondition">...</span></p>
             <h1><span id="aqiNum">...</span></h1>
         </body>
@@ -99,13 +104,17 @@
     </section>
 
     <section class="aqi-text" id="textBox">
-        <p style="white-space: pre-line" id="gpt-response">Information Loading...</p>
+        <p style="white-space: pre-line" id="gpt-response"></p>
     </section>
 
+    <!--<section>
+        <div class="inputDiv">
+            <input type="text" name="condition" id="input" placeholder="Add a Medical Condition">
+        </div>
+    </section>-->
     <form action="console.log">
-        <input type="search" placeholder="Add a Medical Condition">
-        <button class="searchButton"><i class="material-icons">add</i></button>
-        <!--<input type="text" name="condition">-->
+        <input type="text" placeholder="Add a Medical Condition">
+        <button class="searchButton" id="button-color"><i class="material-icons">add</i></button>
         <body><?php echo $_POST["condition"]; ?></body>
     </form>
 

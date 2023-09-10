@@ -204,34 +204,35 @@ function setVariables() {
     var o3 = 49.35;
     changeLengths(pm25, pm10, co, so2, no2, o3);
 
-    const setBackground = (main_background_color, card_color, text_color) => {
+    const setBackground = (main_background_color, card_color, text_color, button_color) => {
       document.body.style.background = main_background_color;
       document.getElementById('aqi-section').style.background = card_color
       document.getElementById('textBox').style.background = card_color
       document.getElementById('aqi-section').style.color = text_color
+      document.getElementById('button').style.color = button_color
     }
 
     var aqi = document.getElementById("aqiNum").innerHTML;
     var condition = "Hazardous";
     var colorClass = "maroon";
     if (aqi >= 0 && aqi <= 50) {
-        setBackground('#0B6E4F', "#7fb68590", "#2deb60")
+        setBackground('#0B6E4F', "#7fb68590", "#2deb60", '#0B6E4F')
         condition = "Good";
         colorClass = "green";
     } else if (aqi <= 100) {
-        setBackground('#bda800', "#dbc30090", "#ffff00")
+        setBackground('#bda800', "#dbc30090", "#ffff00", '#bda800')
         condition = "Moderate";
         colorClass = "yellow";
     } else if (aqi <= 150) {
-        setBackground('#f28552', "#f1b689bc", "#ff5100")
+        setBackground('#f28552', "#f1b689bc", "#ff5100", '#f28552')
         condition = "Unhealthy for sensitive groups";
         colorClass = "orange";
     } else if (aqi <= 200) {
-        setBackground('#472929', "#5D3E3E", "#E15555")
+        setBackground('#472929', "#5D3E3E", "#E15555", '#472929')
         condition = "Unhealthy";
         colorClass = "red";
     } else if (aqi <= 300) {
-        setBackground('#664229', "#987554", "#E5D3B3")
+        setBackground('#664229', "#987554", "#E5D3B3", '#664229')
         condition = "Very unhealthy";
         colorClass = "purple";
     }
@@ -239,19 +240,22 @@ function setVariables() {
     document.getElementById("color").innerHTML = colorClass;
 }
 
-function load(url) {
-    document.getElementById('loadingImg').visible = true;
-    var req = new XMLHttpRequest();
-    req.open("POST", url, true);
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.querySelector("body").classList.add("loaded");
+    }, 3000)
+});
 
-    req.onreadystatechange = function () {
-        if (req.readyState == 4 && req.status == 200) {
-            // content is loaded...hide the gif and display the content...
-            if (req.responseText) {
-                document.getElementById('content').innerHTML = req.responseText;
-                document.getElementById('loadingImg').visible = false;
-            }
-        }
-    };
-    request.send(vars);
-}
+var input = document.getElementById("input");
+
+input.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      const text = input.value
+      console.log(text)
+    }
+  });
+
