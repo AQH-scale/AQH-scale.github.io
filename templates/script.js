@@ -4,6 +4,27 @@ let back3 = document.getElementById('back3');
 let elem = document.getElementById('textBox');
 let box = elem.getBoundingClientRect();
 
+async function fillInText() {
+  const response = await $.ajax({
+    method: "POST",
+    url: `http://localhost:8056/api`,
+    contentType: "application/json",
+    data: JSON.stringify({
+      'query': 'hello',
+      'location': {
+        'lon': 47.6061,
+        'lat': 122.3328,
+      }
+    }),
+  })
+
+  console.log(response)
+}
+
+
+
+fillInText()
+
 window.addEventListener('scroll', () => {
     if (window.scrollY + box.height < box.bottom) {
         let value = window.scrollY;
@@ -42,7 +63,7 @@ function setVariables() {
       document.getElementById('aqi-section').style.color = text_color
     }
 
-    var aqi = 201;
+    var aqi = 60;
     var condition = "Hazardous";
     var colorClass = "maroon";
     if (aqi >= 0 && aqi <= 50) {
@@ -71,10 +92,3 @@ function setVariables() {
     document.getElementById("color").innerHTML = colorClass;
 }
 
-async function fillInText() {
-  const text = await api_info()
-  await console.log(text)
-  document.getElementById('gpt-response').innerHTML = await text;
-}
-
-fillInText()
