@@ -75,7 +75,7 @@ function setVariables() {
         condition = "Moderate";
         colorClass = "yellow";
     } else if (aqi <= 150) {
-        setBackground('#f28552', "#c08771a8", "#ffa159")
+        setBackground('#f28552', "#f1b689bc", "#ff5100")
         condition = "Unhealthy for sensitive groups";
         colorClass = "orange";
     } else if (aqi <= 200) {
