@@ -18,7 +18,12 @@ async function fillInText() {
     }),
   })
 
+  console.log(response.data)
+
+  document.getElementById("CO").innerHTML = response.data
   console.log(response)
+
+
 }
 
 
@@ -71,7 +76,7 @@ function setVariables() {
         condition = "Good";
         colorClass = "green";
     } else if (aqi <= 100) {
-        setBackground('#f5c56c', "#c99a4fbc", "#ffda75")
+        setBackground('#bda800', "#dbc30090", "#ffff00")
         condition = "Moderate";
         colorClass = "yellow";
     } else if (aqi <= 150) {
