@@ -1,10 +1,12 @@
-const API_KEY = '72eb93baf6baa9eca9a4fc3f728855ba'
+require('dotenv').config()
 
 const getAQI = async (lat, lon) => {
-    const url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    const url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}`
 
     const response = await fetch(url);
     const data = await response.json()
+
+    console.log(data)
 
     const aqi = await {
         aqi: await data['list'][0].main.aqi,
@@ -16,4 +18,7 @@ const getAQI = async (lat, lon) => {
 
 }
 
-console.log(getAQI(47.6061,122.3328))
+
+
+module.exports = getAQI
+
