@@ -34,22 +34,35 @@ inputs.forEach((input) => {
 });
 
 function setVariables() {
-    var aqi = 100;
+
+    const setBackground = (main_background_color, card_color, text_color) => {
+      document.body.style.background = main_background_color;
+      document.getElementById('aqi-section').style.background = card_color
+      document.getElementById('textBox').style.background = card_color
+      document.getElementById('aqi-section').style.color = text_color
+    }
+
+    var aqi = 201;
     var condition = "Hazardous";
     var colorClass = "maroon";
     if (aqi >= 0 && aqi <= 50) {
+        setBackground('#0B6E4F', "#7fb68590", "#2deb60")
         condition = "Good";
         colorClass = "green";
     } else if (aqi <= 100) {
+        setBackground('#bda800', "#dbc30090", "#ffff00")
         condition = "Moderate";
         colorClass = "yellow";
     } else if (aqi <= 150) {
+        setBackground('#ff4d00', "#ff740090", "#ffc100")
         condition = "Unhealthy for sensitive groups";
         colorClass = "orange";
     } else if (aqi <= 200) {
+        setBackground('#472929', "#5D3E3E", "#E15555")
         condition = "Unhealthy";
         colorClass = "red";
     } else if (aqi <= 300) {
+        setBackground('#664229', "#987554", "#E5D3B3")
         condition = "Very unhealthy";
         colorClass = "purple";
     }
