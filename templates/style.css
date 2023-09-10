@@ -84,7 +84,7 @@ header {
     /*background: rbga(150, 219, 219, 0.1);
     background: #96DBDB;
     opacity: 0.1;*/
-    background: #3A5F55;
+    background: rgba(57, 95, 85, 0.9);
     padding: 60px 100px;
     width: 50%;
     z-index: 1;
