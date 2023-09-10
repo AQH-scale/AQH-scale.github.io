@@ -21,17 +21,16 @@ async function fillInText() {
 
   console.log(response.data)
 
+  document.getElementById("PM25").innerHTML = response.data.components.pm2_5
+  document.getElementById("PM10").innerHTML = response.data.components.pm10
   document.getElementById("CO").innerHTML = response.data.components.co
-  document.getElementById("NO").innerHTML = response.data.components.no
+  document.getElementById("SO2").innerHTML = response.data.components.so2
   document.getElementById("NO2").innerHTML = response.data.components.no2
   document.getElementById("O3").innerHTML = response.data.components.o3
-  document.getElementById("SO2").innerHTML = response.data.components.so2
-  document.getElementById("NH3").innerHTML = response.data.components.nh3
   document.getElementById("aqiNum").innerHTML = response.data.aqi;
 
   document.getElementById('gpt-response').innerHTML = response.gtp_info
   setVariables()
-
 
   console.log(response)
 
@@ -240,3 +239,19 @@ function setVariables() {
     document.getElementById("color").innerHTML = colorClass;
 }
 
+function load(url) {
+    document.getElementById('loadingImg').visible = true;
+    var req = new XMLHttpRequest();
+    req.open("POST", url, true);
+
+    req.onreadystatechange = function () {
+        if (req.readyState == 4 && req.status == 200) {
+            // content is loaded...hide the gif and display the content...
+            if (req.responseText) {
+                document.getElementById('content').innerHTML = req.responseText;
+                document.getElementById('loadingImg').visible = false;
+            }
+        }
+    };
+    request.send(vars);
+}
