@@ -2,10 +2,13 @@ let back1 = document.getElementById('back1');
 let back2 = document.getElementById('back2');
 let back3 = document.getElementById('back3');
 
+const initHeight = document.body.scrollHeight;
+
 window.addEventListener('scroll', () => {
   // find a value it shouldnt be a constant
   // also maybe hide scroll bar idk
-  if (window.scrollY < 500) {
+  console.log(initHeight)
+  if (window.scrollY < initHeight) {
     let value = window.scrollY;
 
     back1.style.top = value * 1.8 + 'px';
