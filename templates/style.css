@@ -22,7 +22,7 @@ header {
     width: 100%;
     padding: 30px;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     align-items: center;
     z-index: 100;
 }
@@ -69,5 +69,26 @@ header {
     left: 0%;
     width: 100%;
     pointer-events: none;
+}
+
+
+.aqi {
+    position: relative;
+    background: #96DBDB;
+    opacity: 0.1;
+    padding: 90px 100px;
+}
+
+.aqi h2 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+.aqi p {
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 300;
 }
 
