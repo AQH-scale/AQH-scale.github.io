@@ -66,12 +66,144 @@ function toggleBackground(event) {
   }
 }
 
-inputs.forEach((input) => {
-  input.addEventListener("focus", focusFunc);
-  input.addEventListener("blur", blurFunc);
-});
-
 function setVariables() {
+    const changeLengths = (pm25, pm10, co, so2, no2, o3) => {
+        /*const gases = [pm25, pm10, co, so2, no2, o3];*/
+        if (pm25 <= 10) {
+            document.getElementById('pm25-section').style.width = "20%";
+            document.getElementById('pm25-section').style.background = "#2deb60";
+        } else if (pm25 <= 25) {
+            document.getElementById('pm25-section').style.width = "40%";
+            document.getElementById('pm25-section').style.background = "#ffda75";
+        } else if (pm25 <= 50) {
+            document.getElementById('pm25-section').style.width = "60%";
+            document.getElementById('pm25-section').style.background = "#ff5100";
+        } else if (pm25 <= 75) {
+            document.getElementById('pm25-section').style.width = "80%";
+            document.getElementById('pm25-section').style.background = "#E15555";
+        } else {
+            document.getElementById('pm25-section').style.gas.width = "100%";
+            document.getElementById('pm25-section').style.background = "#E5D3B3";
+        }
+
+        if (pm10 <= 20) {
+            document.getElementById('pm10-section').style.width = "20%";
+            document.getElementById('pm10-section').style.background = "#2deb60";
+        } else if (pm10 <= 50) {
+            document.getElementById('pm10-section').style.width = "40%";
+            document.getElementById('pm10-section').style.background = "#ffda75";
+        } else if (pm10 <= 100) {
+            document.getElementById('pm10-section').style.width = "60%";
+            document.getElementById('pm10-section').style.background = "#ff5100";
+        } else if (pm10 <= 200) {
+            document.getElementById('pm10-section').style.width = "80%";
+            document.getElementById('pm10-section').style.background = "#E15555";
+        } else {
+            document.getElementById('pm10-section').style.width = "100%";
+            document.getElementById('pm10-section').style.background = "#E5D3B3";
+        }
+
+        if (co <= 4400) {
+            document.getElementById('co-section').style.width = "20%";
+            document.getElementById('co-section').style.background = "#2deb60";
+        } else if (co <= 9400) {
+            document.getElementById('co-section').style.width = "40%";
+            document.getElementById('co-section').style.background = "#ffda75";
+        } else if (co <= 12400) {
+            document.getElementById('co-section').style.width = "60%";
+            document.getElementById('co-section').style.background = "#ff5100";
+        } else if (co <= 15400) {
+            document.getElementById('co-section').style.width = "80%";
+            document.getElementById('co-section').style.background = "#E15555";
+        } else {
+            document.getElementById('co-section').style.width = "100%";
+            document.getElementById('co-section').style.background = "#E5D3B3";
+        }
+        
+        if (so2 <= 20) {
+            document.getElementById('so2-section').style.width = "20%";
+            document.getElementById('so2-section').style.background = "#2deb60";
+        } else if (so2 <= 80) {
+            document.getElementById('so2-section').style.width = "40%";
+            document.getElementById('so2-section').style.background = "#ffda75";
+        } else if (so2 <= 250) {
+            document.getElementById('so2-section').style.width = "60%";
+            document.getElementById('so2-section').style.background = "#ff5100";
+        } else if (so2 <= 350) {
+            document.getElementById('so2-section').style.width = "80%";
+            document.getElementById('so2-section').style.background = "#E15555";
+        } else {
+            document.getElementById('so2-section').style.width = "100%";
+            document.getElementById('so2-section').style.background = "#E5D3B3";
+        }
+
+        if (no2 == 0) {
+            document.getElementById('no2-section').style.width = "0%";
+            document.getElementById('no2-section').style.background = "#2deb60";
+        } else if (no2 <= 40) {
+            document.getElementById('no2-section').style.width = "20%";
+            document.getElementById('no2-section').style.background = "#2deb60";
+        } else if (no2 <= 70) {
+            document.getElementById('no2-section').style.width = "40%";
+            document.getElementById('no2-section').style.background = "#ffda75";
+        } else if (no2 <= 150) {
+            document.getElementById('no2-section').style.width = "60%";
+            document.getElementById('no2-section').style.background = "#ff5100";
+        } else if (no2 <= 200) {
+            document.getElementById('no2-section').style.width = "80%";
+            document.getElementById('no2-section').style.background = "#E15555";
+        } else {
+            document.getElementById('no2-section').style.width = "100%";
+            document.getElementById('no2-section').style.background = "#E5D3B3";
+        }
+
+        if (o3 <= 60) {
+            document.getElementById('o3-section').style.width = "20%";
+            document.getElementById('o3-section').style.background = "#2deb60";
+        } else if (o3 <= 100) {
+            document.getElementById('o3-section').style.width = "40%";
+            document.getElementById('o3-section').style.background = "#ffda75";
+        } else if (o3 <= 140) {
+            document.getElementById('o3-section').style.width = "60%";
+            document.getElementById('o3-section').style.background = "#ff5100";
+        } else if (o3 <= 180) {
+            document.getElementById('o3-section').style.width = "80%";
+            document.getElementById('o3-section').style.background = "#E15555";
+        } else {
+            document.getElementById('o3-section').style.width = "100%";
+            document.getElementById('o3-section').style.background = "#E5D3B3";
+        }
+    }
+
+    /*
+    const good = (gas) => {
+        document.getElementById('bar-section').style.gas.width = 20;
+        document.getElementById('bar-section').style.gas.background = "#2deb60";
+    }
+    const fair = (gas) => {
+        document.getElementById('bar-section').style.gas.width = 40;
+        document.getElementById('bar-section').style.gas.background = "#ffda75";
+    }
+    const moderate = (gas) => {
+        document.getElementById('bar-section').style.gas.width = 60;
+        document.getElementById('bar-section').style.gas.background = "#ff5100";
+    }
+    const poor = (gas) => {
+        document.getElementById('bar-section').style.gas.width = 80;
+        document.getElementById('bar-section').style.gas.background = "#E15555";
+    }
+    const veryPoor = (gas) => {
+        document.getElementById('bar-section').style.gas.width = 100;
+        document.getElementById('bar-section').style.gas.background = "#E5D3B3";
+    }*/
+
+    var pm25 = 7.36;
+    var pm10 = 8.21;
+    var co = 216.95;
+    var so2 = 0;
+    var no2 = 1.03;
+    var o3 = 49.35;
+    changeLengths(pm25, pm10, co, so2, no2, o3);
 
     const setBackground = (main_background_color, card_color, text_color) => {
       document.body.style.background = main_background_color;

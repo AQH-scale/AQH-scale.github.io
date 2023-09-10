@@ -58,7 +58,7 @@ header {
 .sidenav a {
     padding: 40px;
     font-size: 30px;
-    color: #c5c5c5;
+    color: #ffffff9b;
     transition: 0.3s;
     margin-bottom: 100px;
 }
@@ -244,11 +244,18 @@ form:hover input {
     animation: progress 1000ms ease-in 1;
 }
 
+.pm25 {
+    width: 65%;
+    background-color: rgb(235, 198, 122);
+}
+.pm10 {
+    width: 55%;
+}
 .co {
     width: 85%;
     background-color: rgb(219, 99, 99);
 }
-.no {
+.so2 {
     width: 70%;
     background-color: rgb(235, 198, 122);
 }
@@ -258,13 +265,6 @@ form:hover input {
 .o3 {
     width: 75%;
     background-color: rgb(219, 99, 99);
-}
-.so2 {
-    width: 65%;
-    background-color: rgb(235, 198, 122);
-}
-.nh3 {
-    width: 55%;
 }
 
 @keyframes progress {
