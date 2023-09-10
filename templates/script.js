@@ -18,6 +18,7 @@ async function fillInText() {
     }),
   })
 
+
   console.log(response.data)
 
   document.getElementById("CO").innerHTML = response.data.components.co
@@ -26,9 +27,10 @@ async function fillInText() {
   document.getElementById("O3").innerHTML = response.data.components.o3
   document.getElementById("SO2").innerHTML = response.data.components.so2
   document.getElementById("NH3").innerHTML = response.data.components.nh3
+  document.getElementById("aqiNum").innerHTML = response.data.aqi;
 
-
-
+  document.getElementById('gpt-response').innerHTML = response.gtp_info
+  setVariables()
 
 
   console.log(response)
@@ -78,7 +80,7 @@ function setVariables() {
       document.getElementById('aqi-section').style.color = text_color
     }
 
-    var aqi = 140;
+    var aqi = document.getElementById("aqiNum").innerHTML;
     var condition = "Hazardous";
     var colorClass = "maroon";
     if (aqi >= 0 && aqi <= 50) {
@@ -103,7 +105,6 @@ function setVariables() {
         colorClass = "purple";
     }
     document.getElementById("airCondition").innerHTML = condition;
-    document.getElementById("aqiNum").innerHTML = aqi;
     document.getElementById("color").innerHTML = colorClass;
 }
 

@@ -14,12 +14,12 @@ const aqi_info = async (position, query) => {
 
     console.log(componentsString)
     
-    // const gpt_response = await chat(`Tell me about the adverse health conditions related to an air quality of ${aqi_data.aqi} with individual particle measurments of ${componentsString} in the air, please be as breif as possible`)
+    const gpt_response = await chat(`Tell me about the adverse health conditions related to an air quality of ${aqi_data.aqi} and then in 100 words summarize the effects of the individual particle measurments of ${componentsString} in the air, please be as breif as possible with bullets of 15 words per`)
 
-    // await console.log(gpt_response)
+    await console.log(gpt_response[0].message.content)
 
-    return {
-        // gtp_info: gpt_response,
+    return await {
+        gtp_info: gpt_response[0].message.content,
         data: aqi_data,
     }
 }
