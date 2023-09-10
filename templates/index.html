@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -13,30 +14,30 @@
 <!-- Wrapper -->
 <div id="wrapper">
 
-<!-- Header -->
-<header>
-    <nav class="home">
+<!-- Header 
+    <header>
+        <nav class="home">
+            <ul>
+                <a href="index.html" onclick="toggleBackground(this)">HOME</a>
+            </ul>
+        </nav>
+    </header> -->
+
+    <nav class="sidenav">
         <ul>
-            <a href="index.html" onclick="toggleBackground(this)">HOME</a>
+            <a class="active" href="index.html" onclick="toggleBackground(this)"><span class="material-icons">cloud</span></a>
+            <a href="weather.html" onclick="toggleBackground(this)"><span class="material-icons">wb_sunny</span></a>
         </ul>
     </nav>
-</header>
-
-<nav class="sidenav">
-    <ul>
-        <a href="index.html" onclick="toggleBackground(this)"><span class="material-icons">cloud</span></a>
-        <a href="weather.html" onclick="toggleBackground(this)"><span class="material-icons">wb_sunny</span></a>
-    </ul>
-</nav>
 
 <!-- Background -->
-<section class="parallax">
-    <h2 id="text"> </h2>
-    <p id="text2"> </p>
-    <img src="images/cloud1.png" id="back1">
-    <img src="images/cloud2.png" id="back2">
-    <img src="images/cloud3.png" id="back3">
-</section>
+    <section class="parallax">
+        <h2 id="text"> </h2>
+        <p id="text2"> </p>
+        <img src="images/cloud1.png" id="back1">
+        <img src="images/cloud2.png" id="back2">
+        <img src="images/cloud3.png" id="back3">
+    </section>
 
 <!-- Air Quality Index -->
 <!--<section class="red"-->
@@ -47,6 +48,55 @@
         </body>
         <!--<h1>80</h1>-->
         <p>Air Quality Index</p>
+        <div class="skills">
+            <div class="bar-container">
+                <p>CO</p>
+                <h3>216.96</h3>
+                <div class="bar">
+                    <span class="percentage co"></span>
+                </div>
+            </div>
+     
+            <div class="bar-container">
+                <p>NO</p>
+                <h3>0</h3>
+                <div class="bar">
+                    <span class="percentage no"></span>
+                </div>
+            </div>
+     
+            <div class="bar-container">
+                <p>NO<sub>2</sub></p>
+                <h3>1.03</h3>
+                <div class="bar">
+                    <span class="percentage no2"></span>
+                </div>
+            </div>
+     
+            <div class="bar-container">
+                <p>O<sub>3</sub></p>
+                <h3>60.08</h3>
+                <div class="bar">
+                    <span class="percentage o3"></span>
+                </div>
+            </div>
+     
+            <div class="bar-container">
+                <p>SO<sub>2</sub></p>
+                <h3>0.44</h3>
+                <div class="bar">
+                    <span class="percentage so2"></span>
+                </div>
+            </div>
+     
+            <div class="bar-container">
+                <p>NH<sub>3</sub></p>
+                <h3>2.98</h3>
+                <div class="bar">
+                    <span class="percentage nh3"></span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="aqi-text" id="textBox">
@@ -67,6 +117,38 @@
             massa massa ultricies. Senectus et netus et malesuada fames ac turpis egestas maecenas. </p>
     </section>
 
+    <form action="console.log">
+        <input type="search" placeholder="Add a Medical Condition">
+        <button class="searchButton"><i class="material-icons">add</i></button>
+        <!--<input type="text" name="condition">-->
+        <body><?php echo $_POST["condition"]; ?></body>
+    </form>
+
+    <!--
+    <form action="welcome.php" type="search" placeholder="Add a Medical Condition">
+        <i class="material-icons">add</i><input type="text" name="condition">
+    </form>
+    <body><?php echo $_POST["condition"]; ?></body>
+    
+    <div class="searchBox">
+        <input class="searchInput" type="text" name="" placeholder="Add a Medical Condition">
+        <button class="searchButton" href="#"><i class="material-icons">add</i></button>
+    </div>-->
+
+    <!--<section class="bars">
+        <p>CO<br><br>NO</li><br><br>NO<sub>2</sub><br><br>O<sub>3</sub><br><br>SO<sub>2</sub><br><br>NH<sub>3</sub></p>
+    </section>
+
+    <section>
+        <ul class="chart">
+            <li style="grid-column: span 9"></li>
+            <li style="grid-column: span 11"></li>
+            <li style="grid-column: span 5"></li>
+            <li style="grid-column: span 11"></li>
+            <li style="grid-column: span 6"></li>
+            <li style="grid-column: span 6"></li>
+        </ul> 
+    </section>-->
 <!-- FOOTER -->
 <footer>
     <div>
