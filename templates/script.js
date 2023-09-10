@@ -20,7 +20,17 @@ async function fillInText() {
 
   console.log(response.data)
 
-  document.getElementById("CO").innerHTML = response.data
+  document.getElementById("CO").innerHTML = response.data.components.co
+  document.getElementById("NO").innerHTML = response.data.components.no
+  document.getElementById("NO2").innerHTML = response.data.components.no2
+  document.getElementById("O3").innerHTML = response.data.components.o3
+  document.getElementById("SO2").innerHTML = response.data.components.so2
+  document.getElementById("NH3").innerHTML = response.data.components.nh3
+
+
+
+
+
   console.log(response)
 
 
