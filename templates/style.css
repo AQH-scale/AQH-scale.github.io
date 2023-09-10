@@ -58,17 +58,17 @@ header {
 .sidenav a {
     padding: 40px;
     font-size: 30px;
-    color: #c8cecb;
+    color: #c5c5c5;
     transition: 0.3s;
     margin-bottom: 100px;
 }
 
 .sidenav a:hover {
-    color: #eff0bd;
+    color: #ffffff;
 }
 
 .sidenav a.active {
-    color: #b1e9b7b3;
+    color: #ffffffb3;
 } 
 
 .parallax {
@@ -208,8 +208,16 @@ form:hover input {
     float: left;
 }
 
-.bar-container h3 {
+.bar-container sub {
+    position: relative;
+    top: -3px;
     color: rgb(255, 255, 255);
+    font-size: 8px;
+    text-align: left;
+}
+
+.bar-container h3 {
+    color: rgba(255, 255, 255, 0.855);
     letter-spacing: 1px;
     font-size: 15px;
     text-align: right;
