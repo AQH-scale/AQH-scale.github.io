@@ -45,6 +45,7 @@ header {
 }
 
 .parallax {
+    max-height: fit-content;
     position: relative;
     display: flex;
     justify-content: right;
