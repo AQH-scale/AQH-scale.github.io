@@ -33,7 +33,16 @@
 <!-- Air Quality Index -->
 <section class="aqi">
     <p>Good</p>
-    <h1>80</h1>
+    <script>
+        function myFunction() {
+        var aqi = 100;
+        document.getElementById("aqiNum").innerHTML = aqi;
+        }
+    </script>
+    <body onload="myFunction()">
+        <h1><span id="aqiNum"></span></h1>
+    </body>
+    <!--<h1>80</h1>-->
     <p>Air Quality Index</p>
 </section>
 
