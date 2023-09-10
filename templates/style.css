@@ -10,7 +10,7 @@
 }
 
 body {
-    background: #29473B;
+    background: #32624f;
     /*min-height: 100vh;
     max-height: 8000px;*/
     overflow-y: scroll;
@@ -78,13 +78,13 @@ header {
     top: 100px;*/
     position: absolute;
     top: 100px;
-    left: 25vw;
+    left: 33vw;
     /*background: rbga(150, 219, 219, 0.1);
     background: #96DBDB;
     opacity: 0.1;*/
-    background: rgba(57, 95, 85, 0.9);
-    padding: 60px 100px;
-    width: 50%;
+    background: #51907e;
+    padding: 40px;
+    width: 34%;
     z-index: 1;
     border-radius: 8px;
 }
@@ -105,10 +105,10 @@ header {
 
 .aqi-text {
     position: absolute;
-    top: 380px;
+    top: 350px;
     left: 30vw;
-    background: #3A5F55;
-    padding: 60px 100px;
+    background: #51907e;
+    padding: 40px 50px;
     width: 40%;
     z-index: 1;
     border-radius: 8px;
