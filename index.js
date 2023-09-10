@@ -1,8 +1,23 @@
 const express = require("express")
+const path = require('path')
 
-const weather = require('./js/weather-controller')
-const chatCompletion =  require("./js/openai-controller")
+const app = express()
+const port = 8080;
 
+const info = require('./js/getInfo')
 
-console.log(chatCompletion('breifly summarize the negative health effects of an air quality index of 250 3 bullet points of no more than 20 words each'))
-console.log(weather(47.6061,122.3328))
+// info({
+//     lon: 47.6061,
+//     lat: 122.3328,
+// })
+
+app.use(express.static(path.join(__dirname, '/templates')))
+
+app.get('/', (req, res) => {
+    console.log('here')
+    res.sendFile(path.join(__dirname,'./templates/index.html'))
+})
+
+app.listen(port, () => {
+    console.log(`started app listening on port ${port}`)
+})

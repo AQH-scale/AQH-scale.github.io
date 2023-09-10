@@ -9,7 +9,7 @@ const getAQI = async (lat, lon) => {
     console.log(data)
 
     const aqi = await {
-        aqi: await data['list'][0].main.aqi,
+        aqi: 150, // for test //await data['list'][0].main.aqi needs to be calculated based on components,
         components: await data['list'][0].components,
     }
 
