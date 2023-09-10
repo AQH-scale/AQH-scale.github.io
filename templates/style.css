@@ -29,7 +29,7 @@ header {
     z-index: 100;
 }
 
-.navigation a {
+.home a {
     text-decoration: none;
     color: #97af9c;
     padding: 6px;
@@ -38,10 +38,35 @@ header {
     font-weight: 600;
 }
 
-.navigation a:hover,
-.navigation a.active {
+.home a:hover,
+.home a.active {
     background: #97af9c;
     color: #2c263a;
+}
+
+.sidenav {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #4c816ca2;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 50vh 50px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #c8cecb;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #eff0bd;
 }
 
 .parallax {
@@ -82,7 +107,7 @@ header {
     /*background: rbga(150, 219, 219, 0.1);
     background: #96DBDB;
     opacity: 0.1;*/
-    background: #51907e;
+    background: #4ea188ba;
     padding: 40px;
     width: 34%;
     z-index: 1;
@@ -107,7 +132,7 @@ header {
     position: absolute;
     top: 350px;
     left: 30vw;
-    background: #51907e;
+    background: #46a78aba;
     padding: 40px 50px;
     width: 40%;
     z-index: 1;
