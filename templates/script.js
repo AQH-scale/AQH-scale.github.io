@@ -1,5 +1,3 @@
-let text = document.getElementById('text');
-let text2 = document.getElementById('text2');
 let back1 = document.getElementById('back1');
 let back2 = document.getElementById('back2');
 let back3 = document.getElementById('back3');
@@ -22,21 +20,6 @@ function toggleBackground(event) {
     activeLink = clickedLink;
   } else {
     activeLink = null;
-  }
-}
-
-
-const inputs = document.querySelectorAll(".input");
-
-function focusFunc() {
-  let parent = this.parentNode;
-  parent.classList.add("focus");
-}
-
-function blurFunc() {
-  let parent = this.parentNode;
-  if (this.value == "") {
-    parent.classList.remove("focus");
   }
 }
 

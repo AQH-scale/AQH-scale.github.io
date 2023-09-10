@@ -11,8 +11,10 @@
 
 body {
     background: #29473B;
-    min-height: 100vh;
-    overflow-x: hidden;
+    /*min-height: 100vh;
+    max-height: 8000px;*/
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 header {
@@ -69,26 +71,53 @@ header {
     left: 0%;
     width: 100%;
     pointer-events: none;
+    z-index: auto;
 }
-
 
 .aqi {
-    position: relative;
+    /*position: sticky;
+    top: 100px;*/
+    position: absolute;
+    top: 100px;
+    left: 25vw;
+    /*background: rbga(150, 219, 219, 0.1);
     background: #96DBDB;
-    opacity: 0.1;
-    padding: 90px 100px;
+    opacity: 0.1;*/
+    background: #3A5F55;
+    padding: 60px 100px;
+    width: 50%;
+    z-index: 1;
+    border-radius: 8px;
 }
 
-.aqi h2 {
-    font-size: 3em;
+.aqi h1 {
+    font-size: 5em;
     color: #ffffff;
     margin-bottom: 10px;
-    text-align:center;
+    text-align: center;
 }
 
 .aqi p {
     font-size: 1em;
     color: #ffffff;
-    font-weight: 300;
+    font-weight: 400;
+    text-align: center;
 }
 
+.aqi-text {
+    position: absolute;
+    top: 380px;
+    left: 30vw;
+    background: #3A5F55;
+    padding: 60px 100px;
+    width: 40%;
+    z-index: 1;
+    border-radius: 8px;
+}
+
+.aqi-text p {
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: left;
+}
