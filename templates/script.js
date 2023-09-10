@@ -63,7 +63,7 @@ function setVariables() {
       document.getElementById('aqi-section').style.color = text_color
     }
 
-    var aqi = 60;
+    var aqi = 140;
     var condition = "Hazardous";
     var colorClass = "maroon";
     if (aqi >= 0 && aqi <= 50) {
@@ -71,11 +71,11 @@ function setVariables() {
         condition = "Good";
         colorClass = "green";
     } else if (aqi <= 100) {
-        setBackground('#bda800', "#dbc30090", "#ffff00")
+        setBackground('#f5c56c', "#c99a4fbc", "#ffda75")
         condition = "Moderate";
         colorClass = "yellow";
     } else if (aqi <= 150) {
-        setBackground('#ff4d00', "#ff740090", "#ffc100")
+        setBackground('#f28552', "#c08771a8", "#ffa159")
         condition = "Unhealthy for sensitive groups";
         colorClass = "orange";
     } else if (aqi <= 200) {

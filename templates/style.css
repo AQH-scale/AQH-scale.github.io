@@ -112,6 +112,7 @@ header {
     background: #7fb68590;
     padding: 65px;
     width: 40%;
+    max-height: 275px;
     z-index: 1;
     border-radius: 8px;
 }
@@ -128,6 +129,8 @@ header {
     font-weight: 400;
     text-align: left;
     padding-left: 20px;
+    word-wrap: break-word;
+    max-width: 150px;
 }
 
 .aqi-text {
@@ -162,7 +165,7 @@ header {
 
 form {
     position: relative;
-    top: 450px;
+    top: 54vh;
     left: 50%;
     transform: translate(-50%,-50%);
     transition: all 1s;
@@ -224,7 +227,7 @@ form:hover input {
 }
 
 .bar {
-    width: 250px;
+    width: 15vw;
     margin-bottom: 5px;
     background-color: rgba(226, 241, 230, 0.756);
     border-radius: 30px;
@@ -273,6 +276,6 @@ form:hover input {
 .skills {
     position: absolute;
     top: 22px;
-    left: 270px;
+    left: 20vw;
     justify-content: space-between;
 }
