@@ -3,10 +3,16 @@ let back2 = document.getElementById('back2');
 let back3 = document.getElementById('back3');
 
 window.addEventListener('scroll', () => {
-  let value = window.scrollY;
-  back1.style.top = value * 1.8 + 'px';
-  back2.style.top = value * 1.1 + 'px';
-  back3.style.top = value * 1.3 + 'px';
+  // find a value it shouldnt be a constant
+  // also maybe hide scroll bar idk
+  if (window.scrollY < 500) {
+    let value = window.scrollY;
+
+    back1.style.top = value * 1.8 + 'px';
+    back2.style.top = value * 1.1 + 'px';
+    back3.style.top = value * 1.3 + 'px';
+  }
+  
 });
 
 var activeLink = null;
