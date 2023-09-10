@@ -3,7 +3,6 @@ let back2 = document.getElementById('back2');
 let back3 = document.getElementById('back3');
 let elem = document.getElementById('textBox');
 let box = elem.getBoundingClientRect();
-import api_info from "../js/getInfo";
 
 window.addEventListener('scroll', () => {
     if (window.scrollY + box.height < box.bottom) {

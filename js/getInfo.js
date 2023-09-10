@@ -25,4 +25,4 @@ const aqi_info = async (position) => {
 }
 
 
-export default api_info
+module.exports = aqi_info
