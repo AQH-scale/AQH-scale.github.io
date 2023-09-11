@@ -40,7 +40,7 @@ async function fillInText() {
   document.getElementById("aqiNum").innerHTML = response.data.aqi;
 
   document.getElementById('gpt-response').innerHTML = response.gtp_info
-  setVariables()
+  await setVariables();
 
   console.log(response)
 
@@ -79,8 +79,8 @@ function setVariables() {
             document.getElementById('pm25-section').style.width = "80%";
             document.getElementById('pm25-section').style.background = "#E15555";
         } else {
-            document.getElementById('pm25-section').style.gas.width = "100%";
-            document.getElementById('pm25-section').style.background = "#E5D3B3";
+            document.getElementById('pm25-section').style.width = "100%";
+            document.getElementById('pm25-section').style.background = "#910f0f";
         }
 
         if (pm10 <= 20) {
@@ -97,7 +97,7 @@ function setVariables() {
             document.getElementById('pm10-section').style.background = "#E15555";
         } else {
             document.getElementById('pm10-section').style.width = "100%";
-            document.getElementById('pm10-section').style.background = "#E5D3B3";
+            document.getElementById('pm10-section').style.background = "#910f0f";
         }
 
         if (co <= 4400) {
@@ -114,7 +114,7 @@ function setVariables() {
             document.getElementById('co-section').style.background = "#E15555";
         } else {
             document.getElementById('co-section').style.width = "100%";
-            document.getElementById('co-section').style.background = "#E5D3B3";
+            document.getElementById('co-section').style.background = "#910f0f";
         }
         
         if (so2 <= 20) {
@@ -131,7 +131,7 @@ function setVariables() {
             document.getElementById('so2-section').style.background = "#E15555";
         } else {
             document.getElementById('so2-section').style.width = "100%";
-            document.getElementById('so2-section').style.background = "#E5D3B3";
+            document.getElementById('so2-section').style.background = "#910f0f";
         }
 
         if (no2 == 0) {
@@ -151,7 +151,7 @@ function setVariables() {
             document.getElementById('no2-section').style.background = "#E15555";
         } else {
             document.getElementById('no2-section').style.width = "100%";
-            document.getElementById('no2-section').style.background = "#E5D3B3";
+            document.getElementById('no2-section').style.background = "#910f0f";
         }
 
         if (o3 <= 60) {
@@ -168,7 +168,7 @@ function setVariables() {
             document.getElementById('o3-section').style.background = "#E15555";
         } else {
             document.getElementById('o3-section').style.width = "100%";
-            document.getElementById('o3-section').style.background = "#E5D3B3";
+            document.getElementById('o3-section').style.background = "#910f0f";
         }
     }
 
@@ -194,12 +194,12 @@ function setVariables() {
         document.getElementById('bar-section').style.gas.background = "#E5D3B3";
     }*/
 
-    var pm25 = 7.36;
-    var pm10 = 8.21;
-    var co = 216.95;
-    var so2 = 0;
-    var no2 = 1.03;
-    var o3 = 49.35;
+    var pm25 = document.getElementById("PM25").innerHTML;
+    var pm10 = document.getElementById("PM10").innerHTML
+    var co = document.getElementById("CO").innerHTML;
+    var so2 = document.getElementById("SO2").innerHTML;
+    var no2 = document.getElementById("NO2").innerHTML;
+    var o3 = document.getElementById("O3").innerHTML;
     changeLengths(pm25, pm10, co, so2, no2, o3);
 
     const setBackground = (main_background_color, card_color, text_color, button_color) => {
@@ -211,31 +211,38 @@ function setVariables() {
     }
 
     var aqi = document.getElementById("aqiNum").innerHTML;
-    var condition = "Hazardous";
-    var colorClass = "maroon";
+    let condition = "...";
+    var colorClass = "...";
     if (aqi >= 0 && aqi <= 50) {
+        document.getElementById("airCondition").innerHTML = "Good";
+
         setBackground('#0B6E4F', "#7fb68590", "#2deb60", '#0B6E4F')
-        condition = "Good";
         colorClass = "green";
     } else if (aqi <= 100) {
-        setBackground('#bda800', "#dbc30090", "#ffff00", '#bda800')
-        condition = "Moderate";
+        document.getElementById("airCondition").innerHTML = "Moderate";
+
+        setBackground('#e8b94a', "#cc97439e", "#ffde85", '#bda800')
         colorClass = "yellow";
     } else if (aqi <= 150) {
-        setBackground('#f28552', "#f1b689bc", "#ff5100", '#f28552')
         condition = "Unhealthy for sensitive groups";
+        document.getElementById("airCondition").innerHTML = "Unhealthy for sensitive groups";
+
+        setBackground('#f28552', "#f1b689bc", "#ff5100", '#f28552')
         colorClass = "orange";
     } else if (aqi <= 200) {
+        document.getElementById("airCondition").innerHTML = "Unhealthy";
+
         setBackground('#472929', "#5D3E3E", "#E15555", '#472929')
         condition = "Unhealthy";
         colorClass = "red";
     } else if (aqi <= 300) {
+        document.getElementById("airCondition").innerHTML = "Very Unhealthy";
         setBackground('#664229', "#987554", "#E5D3B3", '#664229')
         condition = "Very unhealthy";
         colorClass = "purple";
     }
+    console.log(condition)
     document.getElementById("airCondition").innerHTML = condition;
-    document.getElementById("color").innerHTML = colorClass;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
